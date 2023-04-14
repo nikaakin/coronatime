@@ -14,4 +14,6 @@ return [
 	'button'               => 'Sign up',
 	'question'             => 'Already have an account?',
 	'question_link'        => 'Log in',
+	'reset_save'           => 'save changes',
+	'account_confirm'      => 'yout account is confirmed, you can sign in',
 ];

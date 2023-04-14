@@ -11,7 +11,7 @@
     @vite('resources/css/app.css')
     <title>Coronatime</title>
 </head>
-<body class=" min-h-screen font-inter text-slate-970">
+<body class=" min-h-screen font-inter text-slate-970 relative">
     {{ $slot }}
 </body>
 </html>

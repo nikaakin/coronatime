@@ -33,7 +33,7 @@
          </div>
 
          <div class="mt-6">
-            <x-button content="{{ __('login.button') }}">{{ __('login.login') }}</x-button>
+            <x-button content="{{ __('login.button') }}"/>
          </div>
 
          <div class="flex flex-row items-center mt-6 text-zinc-550 text-sm md:text-base justify-center max-w-sm w-full">
