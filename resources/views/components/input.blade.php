@@ -1,5 +1,17 @@
 @props(['name' ,'type', 'id', 'label', 'placeholder', 'error', 'isError' => false, 'isCorrect' => false])
 
+@php
+    if (count($errors) != 0) {
+        if ($errors->has($error)) {
+            $isError = true ;   
+            $isCorrect = false;
+        }else{
+            $isError = false ;   
+            $isCorrect = true;
+        }
+    }
+@endphp    
+
 <div class="relative flex gap-2 flex-col max-w-sm w-full mb-4 md:mb-6">
     <label
     class="block font-bold text-base text-slate-970"
@@ -19,11 +31,11 @@
         @endif
     
     </div>
-
-    @error($name)
+    
+    @error($error)
         <div class="flex flex-row gap-2 font-medium text-red-750">
             <img src="{{ asset('assets/wrong.svg') }}">    
-            {{ $error }}
+            {{ $message }}
         </div>
     @enderror
 </div>

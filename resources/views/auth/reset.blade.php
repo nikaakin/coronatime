@@ -9,7 +9,13 @@
         <form action="" class="flex-1 flex flex-col pb-10 md:block">
 
             <div class="mb-14 flex-1">
-                <x-input type="email" name="email" placeholder="{{ __('signup.email_placeholder') }}" id="email" label="{{ __('signup.email') }}" />
+                <x-input 
+                type="email" 
+                name="email" 
+                placeholder="{{ __('signup.email_placeholder') }}" 
+                id="email" 
+                label="{{ __('signup.email') }}" 
+                error="email" />
             </div>
 
             <div class="text-end">
