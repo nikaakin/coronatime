@@ -94,6 +94,10 @@ class AuthController extends Controller
 		$data = $request->validated();
 		$token = DB::table('password_reset_tokens')->where('email', '=', $data['email'])->first();
 
+		if (!$token) {
+			return redirect()->route('show_login');
+		}
+
 		if (!($token->token === $data['token'])) {
 			return redirect()->route('show_login');
 		}
@@ -101,6 +105,8 @@ class AuthController extends Controller
 		User::where('email', '=', $data['email'])->update([
 			'password'=> bcrypt($data['password']),
 		]);
+
+		DB::table('password_reset_tokens')->where('email', '=', $data['email'])->delete();
 
 		return redirect()->route('verification.notice-updated');
 	}
