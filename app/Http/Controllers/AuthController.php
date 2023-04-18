@@ -40,7 +40,7 @@ class AuthController extends Controller
 		return redirect()->route('login');
 	}
 
-	public function signup(SignupRequest $request)
+	public function signup(SignupRequest $request): RedirectResponse
 	{
 		$data = $request->validated();
 
@@ -51,14 +51,14 @@ class AuthController extends Controller
 		return redirect()->route('verification.notice');
 	}
 
-	public function verification(EmailVerificationRequest $request)
+	public function verification(EmailVerificationRequest $request): View
 	{
 		$request->fulfill();
 		auth()->logout();
 		return view('auth.notice', ['message' => __('auth.account_confirmed')]);
 	}
 
-	public function forgot(ForgotRequest $request)
+	public function forgot(ForgotRequest $request): RedirectResponse
 	{
 		$data = $request->validated();
 		$token = Str::random(64);
