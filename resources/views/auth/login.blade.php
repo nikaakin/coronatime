@@ -37,7 +37,7 @@
             <input type="checkbox" name="remember" class="rounded text-green-550 focus:ring-transparent mr-2" id="remember"/>
             <label for="remember" class="font-semibold text-sm">{{ __('login.remember') }}</label>
            </div>
-            <a href="{{ route('show_forgot') }}" class="font-semibold text-sm text-blue-750">{{ __('login.forgot') }}</a>
+            <a href="{{ route('password.request') }}" class="font-semibold text-sm text-blue-750">{{ __('login.forgot') }}</a>
          </div>
 
          <div class="mt-6">

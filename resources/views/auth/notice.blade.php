@@ -6,9 +6,9 @@
 
 <x-layout>
     <div class="max-w-sm w-full mx-auto px-4 pt-6 flex flex-col h-screen">
-        <div class="mx-4 mt-6 mb-10 md:flex md:justify-center md:mt-10 md:mb-36 ">
+        <a href="{{ route('home') }}" class="mx-4 mt-6 mb-10 md:flex md:justify-center md:mt-10 md:mb-36 block ">
             <img src="{{ asset('assets/logo.svg') }}" alt="">
-        </div>
+        </a>
 
         <div class="absolute top-80  left-1/2 -translate-x-1/2  flex justify-center flex-col items-center gap-4 w-full">
             <img src="{{ asset('assets/checkmark.gif') }}" alt="" class="w-14" >
