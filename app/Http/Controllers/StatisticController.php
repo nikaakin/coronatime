@@ -8,11 +8,11 @@ class StatisticController extends Controller
 {
 	public function worldwide(): View
 	{
-		return view('statistic.worldwide');
+		return view('dashboard.worldwide');
 	}
 
 	public function byCountry()
 	{
-		return view('statistic.by-country');
+		return view('dashboard.list');
 	}
 }
