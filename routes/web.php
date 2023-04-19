@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\StatisticController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,9 +33,4 @@ Route::view('/email/notice', 'auth.notice', ['message'=> __('auth.signup_notice'
 Route::view('/email/notice-updated', 'auth.notice', ['message'=> __('auth.password_updated')])->name('verification.notice-updated');
 Route::get('/email/verify/{id}/{hash},', [AuthController::class, 'verification'])->middleware('signed')->name('verification.verify');
 
-Route::view('/test', 'auth.feedback', [
-	'title'  => __('login.verify_email'),
-	'hint'   => __('login.verify_email_hint'),
-	'content'=> __('login.verify_email_button'),
-	'href'   => '#',
-]);
+Route::get('/locale/{locale}', [LocalizationController::class, 'switchLang']);
