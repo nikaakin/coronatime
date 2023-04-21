@@ -2,17 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Statistic;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class StatisticController extends Controller
 {
 	public function worldwide(): View
 	{
-		return view('statistic.worldwide');
+		$data = Statistic::firstWhere('code', 'worldwide');
+		return view('dashboard.worldwide', $data);
 	}
 
-	public function byCountry()
+	public function byCountry(Request $request): View
 	{
-		return view('statistic.by-country');
+		$worldwide = Statistic::firstWhere('code', 'worldwide');
+		$countries = Statistic::all()->map(fn ($country) =>$country)->slice(1, -1);
+		$sortByParams = $request->query();
+
+		foreach ($sortByParams as $key => $value) {
+			if ($value == 'asc') {
+				$countries = $countries->sortBy($key)->values();
+			} elseif ($value == 'desc') {
+				$countries = $countries->sortByDesc($key)->values();
+			}
+		}
+		return view('dashboard.list', ['countries' => [$worldwide, ...$countries]]);
 	}
 }
