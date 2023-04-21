@@ -13,10 +13,10 @@ class Statistic extends Model
 	use HasTranslations;
 
 	protected $casts = [
-		'name'=> 'array',
+		'location'=> 'array',
 	];
 
-	public $translatable = ['name'];
+	public $translatable = ['location'];
 
 	protected $guarded = ['id'];
 }

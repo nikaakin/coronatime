@@ -11,7 +11,9 @@ class LocalizationController extends Controller
 		if (in_array($locale, config('app.available_locales'))) {
 			app()->setLocale($locale);
 			session()->put('locale', $locale);
+		} else {
+			app()->setLocale('en');
 		}
-		return redirect()->route('home');
+		return back();
 	}
 }

@@ -17,7 +17,10 @@
             .md\:mx-auto {
                 margin-left: auto;
                 margin-right: auto;
-                max-width: 32rem;
+            }
+
+            .width-520{
+                width: 500px;
             }
             .md\:mb-14 {
                 margin-bottom: 3.5rem/* 56px */;
@@ -33,12 +36,10 @@
     <title>Coronatime</title>
 </head>
 <body class=" min-h-screen font-inter text-slate-970 relative">
-
-   
     <a
-    style="   width: 90%;  padding: 1rem;  position: relative; display: block; margin-inline: auto;"
-    class="md:mx-auto md:mb-14 md:mt-44">
-        <img src="{{ asset('assets/preview.png') }}" alt="w-full" >
+    style="     padding: 1rem;  position: relative; display: block; margin-inline: auto; display:flex; justify-content:center;"
+    class="md:mx-auto md:mb-14 md:mt-44 ">
+        <img src="{{ asset('assets/preview.png') }}" alt="w-full" style="width: 300px;" class="width-520">
     </a>
 
     <div 
@@ -51,9 +52,9 @@
         >{{ $hint }}</h3>
         <a
         href="{{ $href }}"
-        style="cursor: pointer; text-transform: uppercase; background-color: rgb(15 186 104 );
+        style=" padding:1rem 0;  margin:0 auto; text-align: center; cursor: pointer; text-transform: uppercase; background-color: rgb(15 186 104 );
         border-radius: 8px; color: rgb(255 255 255 );font-weight: 900;
-        font-size: 0.875rem;line-height: 1.25rem; text-align: center; padding: 1rem 7rem"
+        font-size: 0.875rem;line-height: 1.25rem; text-align: center;max-width: 390px; width:100%; text-decoration:none;display:block;"
         >{{ $content }}</a>    
     </div>
 </body>

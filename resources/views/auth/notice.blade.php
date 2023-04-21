@@ -1,7 +1,4 @@
-{{-- list of local messages --}}
-{{-- message="{{ __('validation.confirmation') }}" --}}
-{{-- message="{{ __('passwords.update_success') }}" --}}
-{{-- message="{{ __('signup.account_confirm') }}" --}}
+
 
 
 <x-layout>

@@ -12,9 +12,9 @@ return new class extends Migration {
 	{
 		Schema::create('statistics', function (Blueprint $table) {
 			$table->id();
-			$table->json('name');
+			$table->json('location');
 			$table->string('code')->unique();
-			$table->integer('confirmed');
+			$table->integer('new_cases');
 			$table->integer('recovered');
 			$table->integer('critical');
 			$table->integer('deaths');

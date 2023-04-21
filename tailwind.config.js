@@ -22,6 +22,7 @@ module.exports = {
                     550: "#808189",
                 },
                 neutral: {
+                    150: "#F6F6F7",
                     250: "#E6E6E7",
                 },
                 red: {
@@ -34,9 +35,14 @@ module.exports = {
             boxShadow: {
                 focused:
                     "-3px 3px 0px #DBE8FB, -3px -3px 0px #DBE8FB, 3px -3px 0px #DBE8FB, 3px 3px 0px #DBE8FB, 3px 3px 0px #DBE8FB",
+                card: "1px 2px 8px rgba(0, 0, 0, 0.04)",
             },
             fontFamily: {
                 inter: ["Inter", "sans-serif"],
+            },
+
+            maxHeight: {
+                150: "37.5rem",
             },
         },
     },
