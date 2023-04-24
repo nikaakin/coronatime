@@ -20,13 +20,27 @@ class StatisticController extends Controller
 		$countries = Statistic::all()->map(fn ($country) =>$country)->slice(1, -1);
 		$sortByParams = $request->query();
 
-		foreach ($sortByParams as $key => $value) {
-			if ($value == 'asc') {
-				$countries = $countries->sortBy($key)->values();
-			} elseif ($value == 'desc') {
-				$countries = $countries->sortByDesc($key)->values();
+		$outputCountries = [$worldwide, ...$countries];
+
+		if ($request->has('query')) {
+			$found = $countries->firstWhere('name', 'ilike', $request->input('query'));
+			if ($found === null) {
+				$outputCountries = [$worldwide];
+			} else {
+				dd($found);
+				$outputCountries = [$worldwide, $found];
 			}
+		} else {
+			foreach ($sortByParams as $key => $value) {
+				if ($value == 'asc') {
+					$countries = $countries->sortBy($key)->values();
+				} elseif ($value == 'desc') {
+					$countries = $countries->sortByDesc($key)->values();
+				}
+			}
+			$outputCountries = [$worldwide, ...$countries];
 		}
-		return view('dashboard.list', ['countries' => [$worldwide, ...$countries]]);
+
+		return view('dashboard.list', ['countries' =>$outputCountries]);
 	}
 }
