@@ -32,12 +32,12 @@ Route::middleware('guest')->group(function () {
 		Route::view('/', 'auth.signup')->middleware('guest')->name('show_signup');
 		Route::post('/', [AuthController::class, 'signup'])->middleware('guest')->name('signup');
 	});
+});
 
-	Route::prefix('/email')->group(function () {
-		Route::view('/notice', 'auth.notice', ['message'=> __('auth.signup_notice')])->name('verification.notice');
-		Route::view('/notice-updated', 'auth.notice', ['message'=> __('auth.password_updated')])->name('verification.notice-updated');
-		Route::get('/verify/{id}/{hash},', [AuthController::class, 'verification'])->middleware('signed')->name('verification.verify');
-	});
+Route::prefix('/email')->group(function () {
+	Route::view('/notice', 'auth.notice', ['message'=> __('auth.signup_notice')])->name('verification.notice');
+	Route::view('/notice-updated', 'auth.notice', ['message'=> __('auth.password_updated')])->name('verification.notice-updated');
+	Route::get('/verify/{id}/{hash},', [AuthController::class, 'verification'])->middleware('signed')->name('verification.verify');
 });
 
 Route::get('/locale/{locale}', [LocalizationController::class, 'switchLang'])->name('lang');
