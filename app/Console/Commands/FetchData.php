@@ -9,23 +9,10 @@ use Illuminate\Support\Facades\Http;
 
 class FetchData extends Command
 {
-	/**
-	 * The name and signature of the console command.
-	 *
-	 * @var string
-	 */
 	protected $signature = 'coronatime:fetch-data';
 
-	/**
-	 * The console command description.
-	 *
-	 * @var string
-	 */
 	protected $description = 'fetches Covid statistics';
 
-	/**
-	 * Execute the console command.
-	 */
 	public function handle()
 	{
 		$request = Http::get('https://devtest.ge/countries');
