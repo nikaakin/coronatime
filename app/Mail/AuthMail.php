@@ -23,7 +23,7 @@ class AuthMail extends Mailable
 	public function envelope(): Envelope
 	{
 		return new Envelope(
-			subject: 'Auth Mail',
+			subject: 'Verify Email',
 		);
 	}
 
@@ -36,7 +36,7 @@ class AuthMail extends Mailable
 				'hint'   => $this->hint,
 				'href'   => $this->href,
 				'content'=> $this->content,
-			]
+			],
 		);
 	}
 
