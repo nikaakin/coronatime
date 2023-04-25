@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\auth\EmailVerificationRequest;
 use App\Http\Requests\auth\LoginRequest;
 use App\Http\Requests\auth\SignupRequest;
 use App\Http\Requests\reset\ForgotRequest;
@@ -9,7 +10,6 @@ use App\Http\Requests\reset\ResetRequest;
 use App\Mail\AuthMail;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
