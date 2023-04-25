@@ -35,7 +35,7 @@
 
         <include>
             <directory suffix=".php">./app</directory>
-            <file>./app/Http/Middleware/localization.php</file>
+            <file>./app/Http/Middleware/Localization.php</file>
         </include>
     </coverage>
     <php>
