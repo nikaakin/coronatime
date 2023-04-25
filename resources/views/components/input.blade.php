@@ -10,6 +10,9 @@
             $isCorrect = true;
         }
     }
+    if(session('error')){
+        $isError = true ;   
+    }
 @endphp    
 
 <div class="relative flex gap-2 flex-col max-w-sm w-full mb-4 md:mb-6">
