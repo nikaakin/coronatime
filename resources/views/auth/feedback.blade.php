@@ -4,58 +4,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Laravel Email</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+
+
     <style>
-        @media (min-width: 768px) {
-            .md\:mt-44 {
-                margin-top: 11rem/* 176px */;
+        /* Responsive styles */
+        @media only screen and (max-width: 600px) {
+            /* Set image width to 90% */
+        
+            .img-container img {
+                width: 90%;
             }
-            .md\:mx-auto {
-                margin-left: auto;
-                margin-right: auto;
+            /* Center button */
+            .btn-container {
+                text-align: center;
             }
 
-            .width-520{
-                width: 500px;
+            .title{
+                font-size: 24px;
+                line-height: 32px;
+                margin: 16px 0 8px 0;
             }
-            .md\:mb-14 {
-                margin-bottom: 3.5rem/* 56px */;
-            }
-         }
-         :root{
+        }
+      
+        :root{
             font-family: Inter,  "sans-serif";
-         }
+         
+        }
 
+         @vite('resources/css/app.css')
     </style>
-
-    @vite('resources/css/app.css')
-    <title>Coronatime</title>
 </head>
-<body class=" min-h-screen font-inter text-slate-970 relative">
-    <a
-    style="     padding: 1rem;  position: relative; display: block; margin-inline: auto; display:flex; justify-content:center;"
-    class="md:mx-auto md:mb-14 md:mt-44 ">
-        <img src="{{ asset('assets/preview.png') }}" alt="w-full" style="width: 300px;" class="width-520">
-    </a>
-
-    <div 
-    style="text-align:center;">
-        <h1 
-        style="font-weight: 900; font-size: 1.5rem;line-height: 2rem;margin-bottom: 0.5rem "
-        >{{ $title }}</h1>
-        <h3 
-        style="font-weight: 400; font-size: 1.125rem;line-height: 1.75rem; margin-bottom: 1.5rem"
-        >{{ $hint }}</h3>
-        <a
-        href="{{ $href }}"
-        style=" padding:1rem 0;  margin:0 auto; text-align: center; cursor: pointer; text-transform: uppercase; background-color: rgb(15 186 104 );
-        border-radius: 8px; color: rgb(255 255 255 );font-weight: 900;
-        font-size: 0.875rem;line-height: 1.25rem; text-align: center;max-width: 390px; width:100%; text-decoration:none;display:block;"
-        >{{ $content }}</a>    
-    </div>
+<body>
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+        <tr>
+            <td align="center" bgcolor="#ffffff" style="padding: 40px 0 30px 0;">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 520px;">
+                    <tr>
+                        <td class="img-container" align="center">
+                            <img src="{{ asset('assets/preview.png')  }}" alt="Example Image" style="display: block; width: 100%; max-width: 520px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" >
+                            <p style="font-weight: 900; font-size: 24px;line-height: 32px;margin: 16px 0 8px 0;">{{ $title }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" >
+                            <p style="font-weight: 400; font-size: 18px;line-height: 28px; ;margin: 0 0 24px 0">{{ $hint }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="btn-container" >
+                            <a href="{{ $href }}" style="padding:16px 0;  margin:0 auto; text-align: center; cursor: pointer; text-transform: uppercase; background-color: 	#0FBA68;border-radius: 8px; color: #ffffff;font-weight: 900;font-size: 14px;line-height: 18px; text-align: center;max-width: 390px; width:100%; text-decoration:none;display:block;">
+                            {{ $content }}</a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
