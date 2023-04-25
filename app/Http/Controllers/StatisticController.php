@@ -17,30 +17,18 @@ class StatisticController extends Controller
 	public function byCountry(Request $request): View
 	{
 		$worldwide = Statistic::firstWhere('code', 'worldwide');
-		$countries = Statistic::all()->map(fn ($country) =>$country)->slice(1, -1);
-		$sortByParams = $request->query();
+		$sortParams = $request->query();
 
-		$outputCountries = [$worldwide, ...$countries];
+		$countries = Statistic::search($request->input('query'))->get();
+		$countries = $countries->where('code', '!=', 'worldwide');
 
-		if ($request->has('query')) {
-			$found = $countries->firstWhere('name', 'ilike', $request->input('query'));
-			if ($found === null) {
-				$outputCountries = [$worldwide];
-			} else {
-				dd($found);
-				$outputCountries = [$worldwide, $found];
+		foreach ($sortParams as $key => $value) {
+			if ($value == 'asc') {
+				$countries = $countries->sortBy($key)->values();
+			} elseif ($value == 'desc') {
+				$countries = $countries->sortByDesc($key)->values();
 			}
-		} else {
-			foreach ($sortByParams as $key => $value) {
-				if ($value == 'asc') {
-					$countries = $countries->sortBy($key)->values();
-				} elseif ($value == 'desc') {
-					$countries = $countries->sortByDesc($key)->values();
-				}
-			}
-			$outputCountries = [$worldwide, ...$countries];
 		}
-
-		return view('dashboard.list', ['countries' =>$outputCountries]);
+		return view('dashboard.list', ['countries' =>[$worldwide, ...$countries]]);
 	}
 }
