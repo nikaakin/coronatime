@@ -1,13 +1,13 @@
-<div class=" hidden md:flex">
+<div class=" hidden md:flex min-w-fit">
     <h6 
     class="md:mr-4 md:pr-4 md:border-r-[1px] border-neutral-250 font-bold text-base "
     >{{ auth()->user()->username }}</h6>
     <a href="{{ route('logout') }}" class="font-medium text-sm">{{ __('dashboard.logout') }}</a>
 </div>
 
-<div class="flex md:hidden">
+<div class="flex md:hidden w-4 ">
     <button id="dropdownDelayButton" data-dropdown-toggle="dropdownDelay" data-dropdown-delay="500"  class=" items-center flex  focus:outline-none  font-normal  text-base text-center  " type="button-1">
-        <img src="{{ asset('assets/burger.svg') }}" alt="" class=" cursor-pointer">
+        <img src="{{ asset('assets/burger.svg') }}" alt="" class=" cursor-pointer w-4 h-auto">
         </button>
     
     <div id="dropdownDelay"  class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
