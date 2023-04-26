@@ -11,7 +11,7 @@
 
 <form 
 action="{{ route('by_country') }}" method="GET"
-class=" col-span-3 md:col-span-2 "
+class=" col-span-3 md:col-span-2  ml-4"
 >
     <button>
         
@@ -23,7 +23,7 @@ class=" col-span-3 md:col-span-2 "
         
         <input type="hidden" name="{{ $name }}" value="{{ $value }}">
         <div class="relative">
-            <p class="text-sm font-semibold  break-words">{{ __('dashboard.'. $name) }}</p>
+            <p class="text-sm font-semibold  break-all">{{ __('dashboard.'. $name) }}</p>
             
             <img src="{{ asset('assets/' . ($initialValue == "asc" ? "arrow-black.png" : "arrow-gray.png")) }}" 
             alt="arrow" 
