@@ -14,7 +14,7 @@
                label="{{ __('login.username') }}"
             placeholder="{{ __('signup.username_placeholder') }}" 
             />
-         
+
             <x-input 
                id="password" 
                name="password"
