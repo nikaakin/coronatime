@@ -22,7 +22,7 @@
 
     <div class="relative w-full">
         <input 
-        class="py-4 w-full border-neutral-250 border rounded-[8px] px-6 text-zinc-550 text-base focus:shadow-focused focus:border-blue-750 outline-none {{ $isError ? 'border-red-750' : '' }} {{ $isCorrect ? 'border-green-650' : '' }} "
+        class="py-4 w-full border-neutral-250 border rounded-[8px] px-6 text-zinc-550 text-base focus:shadow-focused focus:border-blue-750 outline-none      {{ $isError ? '!border-red-750' : '' }} {{ $isCorrect ? '!border-green-650' : '' }} "
         type="{{ $type }}"
         name="{{ $name }}"
         id="{{ $id }}"
