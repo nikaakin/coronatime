@@ -6,11 +6,10 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class SignupRequest extends FormRequest
 {
-
 	public function rules(): array
 	{
 		return [
-			'email'                 => ['required', 'unique:users,email'],
+			'email'                 => ['required', 'unique:users,email', 'email'],
 			'username'              => ['required', 'min:3', 'unique:users,username'],
 			'password'              => ['required', 'min:3', 'confirmed'],
 			'password_confirmation' => ['required'],
