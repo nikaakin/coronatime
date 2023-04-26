@@ -31,7 +31,7 @@ class AuthController extends Controller
 		if (auth()->attempt($data, $remember_me)) {
 			return redirect()->route('home');
 		}
-		return redirect()->back()->with('error', __('auth.wrong_credentials'));
+		return redirect()->back()->withInput(['username' =>$request->input('username')])->with('error', __('auth.wrong_credentials'), );
 	}
 
 	public function logout(): RedirectResponse
